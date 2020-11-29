@@ -70,24 +70,6 @@ if (!cat)
 boolean isDog = (retriever) ? true : false;
 ```
 
-### if-then statements
-
-- Be careful about not closing off an if line of code with a semicolon (the following line will run regardless of the result of the if statement)
-
-```
-boolean isSummer = false;
-if (isSummer == true); //this semicolon will mean the following text gets printed no matter what
-  System.out.println("it's summer");
-```
-
-- In order to execute more than one statement, they need to be put in a code block, in the following format:
-
-```
-if (expression) {
-  (put one or more statements here)
-}
-```
-
 ## Section 4 - Expressions, Statements, Code Blocks, Methods
 
 - Keywords - Java has [50 keywords](https://en.wikipedia.org/wiki/List_of_Java_keywords)
@@ -101,9 +83,11 @@ score = 2000;
 ### Methods
 
 - Methods help remove code duplication and make code easier to maintain
-- I've seen a method already, in the case of <code>main</code>
-- Void - the use of this keyword in a method means that the method won't be returning anything. If the method is intended to return something, void gets changed to the data type to be returned. (a method that returns data type void is also known as a procedure)
+- <code>main</code> is an example of a method
+- Void - the use of this keyword in a method means that the method won't be returning anything. If the method is intended to return something, void gets changed to the data type to be returned.
+- A method that returns nothing is also known as a procedure, a method that returns something is also referred to as a function.
 - Note that the method _requires_ a return value if it is specified. This means the following code is invalid, since the code block only executes when the if statement is true.
+- Functions with parameters must have the parameter data type defined
 
 ```
 public static int calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
