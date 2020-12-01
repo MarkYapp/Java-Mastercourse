@@ -110,3 +110,53 @@ if (gameOver) {
 
 return -1
 ```
+
+### Method Overloading
+
+- Allows a single method to have multiple uses with different numbers of arguments
+- Create a single methods with different implementations of the same name with different implementations
+- Example: the following method is called first with two arguments and then again with one argument:
+
+```
+public static double calcFeetAndInchesToCentimeters(double feet, double inches) {
+    if (feet < 0 || inches < 0 || inches > 12) {
+      return -1;
+    }
+    // 1 inch = 2.54cm
+    double centimeters = (feet * 12 + inches) * 2.54;
+    return centimeters;
+  }
+
+  public static double calcFeetAndInchesToCentimeters(double inches) {
+    if (inches < 0) {
+      return -1;
+    }
+    double calculatedFeet = Math.floor(inches / 12);
+    double calculatedInches = inches % 12;
+    return calcFeetAndInchesToCentimeters(calculatedFeet, calculatedInches);
+  }
+```
+
+## Section 5 - Control Flow Statements
+
+### Switch statement
+
+- Similar to if-else, but can only compare against a single variable
+- Very versatile for comparing a single variable against multiple values
+- Can be used with four primitive types: byte, short, chart, int. JDK7 added String type as well.
+- <code>break</code> is required, otherwise subsequent case comparisons will run
+
+```
+int month = "January";
+switch(month.toLowerCase() {
+  case january:
+  //do something
+  break;
+  case february:
+  //do something
+  break;
+  default:
+  //do sometthing
+  break;
+}
+```
