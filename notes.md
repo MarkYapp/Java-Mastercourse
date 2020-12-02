@@ -160,3 +160,37 @@ switch(month.toLowerCase() {
   break;
 }
 ```
+
+### While & Do While
+
+- The while statement is helpful for cases when you don't know exactly how many times a loop needs to run
+- While loops have keyword <code>continue</code>, used with a conditional statement, that if true skips over any subsequent code and begins the next loop iteration
+- Some while loops will need <code>break</code> to prevent an infinite loop
+- While loops can be written more than one way:
+
+```
+int count = 1;
+while (count !=6) {
+  //do something
+  count++;
+}
+
+int count = 1;
+while (true) {
+  if (count == 6) {
+    break;
+  }
+  //do something
+  count++;
+}
+```
+
+- Do while accomplishes the same thing, but reorganizes the code a bit
+- A do-while statement will always be executed at least once, since the count increments before anything else happens
+
+```
+do {
+  //do something
+  count++;
+} while (count !=6);
+```
