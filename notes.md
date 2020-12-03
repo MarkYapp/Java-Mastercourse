@@ -166,6 +166,7 @@ switch(month.toLowerCase() {
 - The while statement is helpful for cases when you don't know exactly how many times a loop needs to run
 - While loops have keyword <code>continue</code>, used with a conditional statement, that if true skips over any subsequent code and begins the next loop iteration
 - Some while loops will need <code>break</code> to prevent an infinite loop
+- For nested loops, <code>break</code> only breaks the current loop
 - While loops can be written more than one way:
 
 ```
@@ -194,3 +195,21 @@ do {
   count++;
 } while (count !=6);
 ```
+
+### Reading User Input
+
+- The <code>Scanner</code> class can be used to read user's input into the console
+- At top of file: <code>import java.util.Scanner</code>
+- Create a new instance of the class, and use different methods for number or text input:
+
+```
+Scanner scanner = new Scanner(System.in);
+String userString = scanner.nextLine();
+int userNumber = scanner.nextInt();
+scanner.nextLine();
+scanner.close();
+```
+
+- It's best practice to follow <code>int userNumber = scanner.nextInt()</code> with <code>scanner.nextLine()</code>. Scanner reads until a blank line is found, and the user entering a number and pressing enter is a blank line. Adding <code>scanner.nextLine()</code> without adding it to a variable tells Scanner to expect this empty line
+- You can input validate a number using <code>scanner.hasNextInt()</code>, which returns a boolean, in an if statement _before_ the <code>scanner.nextIn()</code> line
+- Always close the scanner with <code>scanner.close();</code>
