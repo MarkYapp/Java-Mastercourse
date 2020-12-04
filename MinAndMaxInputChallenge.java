@@ -7,25 +7,33 @@ public class MinAndMaxInputChallenge {
 
   public static void printMinAndMax() {
     Scanner scanner = new Scanner(System.in);
-    int smallestNum;
-    int largestNum;
-
+    int min = 0;
+    int max = 0;
+    boolean firstNum = true;
     while (true) {
       System.out.println("Enter a number");
       if (scanner.hasNextInt()) {
-        int num = scanner.nextInt();
-        smallestNum = num;
-        if (num < smallestNum) {
-          smallestNum = num;
-        } else if (num > largestNum) {
-          largestNum = num;
+        int numberEntered = scanner.nextInt();
+        // handle first two entries
+        if (firstNum) {
+          min = numberEntered;
+          max = numberEntered;
+          firstNum = false;
+        }
+
+        if (numberEntered < min) {
+          min = numberEntered;
+        } else if (numberEntered > max) {
+          max = numberEntered;
         }
 
       } else {
         break;
       }
+      scanner.nextLine();
     }
-    System.out.println("The smallest number entered was " + smallestNum);
-    System.out.println("The largest number entered was " + largestNum);
+    scanner.close();
+    System.out.println("The smallest number entered was " + min);
+    System.out.println("The largest number entered was " + max);
   }
 }
