@@ -213,3 +213,27 @@ scanner.close();
 - It's best practice to follow <code>int userNumber = scanner.nextInt()</code> with <code>scanner.nextLine()</code>. Scanner reads until a blank line is found, and the user entering a number and pressing enter is a blank line. Adding <code>scanner.nextLine()</code> without adding it to a variable tells Scanner to expect this empty line
 - You can input validate a number using <code>scanner.hasNextInt()</code>, which returns a boolean, in an if statement _before_ the <code>scanner.nextIn()</code> line
 - Always close the scanner with <code>scanner.close();</code>
+
+## Section 6 - Classes, Constructors, and Inheritance
+
+### Classes
+
+- A class is like a template or blueprint for creating objects
+- <code>public static void className</code> is the statement to create a class
+- Objects have a state and behavior. Classes are the template to make objects with state and behavior
+- The first word in the statement is an access modifier
+  -Public means unrestricted access to the class
+  -Private means no other class can access this one
+  -Protected allows classes within this package to access this class
+
+### Fields
+
+- Fields are variables that belong to a class. Variables that belong to a method or code block are called local variables.
+- Fields define the object state
+- In classes, variables can be created that are accessible anywhere within the class, known as fields (also called class variables or member variables)
+- Class fields need to have an access modifier. In general these will be private in order to fulfill encapsulation (the internals of the class can't be accessed outside of the class)
+- Objects of a class are initiated using <code>new</code>
+
+```
+Car porsche = new Car();
+```
