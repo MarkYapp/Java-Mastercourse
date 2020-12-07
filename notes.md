@@ -237,3 +237,113 @@ scanner.close();
 ```
 Car porsche = new Car();
 ```
+
+### Constructors
+
+- When you instantiate a class, say it's called Account, the code <code>new Account()</code> automatically creates a constructor
+- The constructor is only called once when a new object is created
+- Constructor method can be overloaded, as long as it's called with different number of arguments
+- This can also be done manually (which would override java doing it automatically) by calling the name of the class along with the access modifier. A common use would be setting the initial fields by passing them as constructor arguments, rather than setting one by one
+
+```
+public Account(String customerName, int number) {
+  this.customerName = customerName;
+  this.number = number;
+}
+```
+
+- You can also make one constructor call another constructor, using a special case of the keyword <code>this</code>. This could be helpful for generating default values of an object if no arguments were passed to the constructor method. Note that this special use of <code>this</code> requires it to be the first line in the constructor
+
+```
+public Account() {
+  this("defaultName", "12345");
+  //other stuff
+}
+```
+
+- VSCode has a getter and setter generator plugin. Click on the class field, press >, select the command
+
+### Inheritance
+
+- OOP allows classes to inherit characteristics from other classes
+- While creating an object, we can use keyword <code>extends</code> to inherit the state and behavior of a base class
+- The code below can be a little confusing. The first line is creating a new class Dog. Because we're creating a new class, it still needs to be initialized with a constructor, which is what's happening on the next line
+- In place of where would normally lines to assign fields, e.g. <code>this.name = name</code>, we have <code>super</code>, which is a keyword that calls the constructor of the class we're inheriting from. <code>Public Dog</code> is the constructor for the Dog class; it passes its arguments to <code>super</code>, which become the parameters of the super class' constructor
+
+```
+public class Dog extends Animal {
+  public Dog(String name, int size) {
+    super(name, size);
+  }
+}
+```
+
+- Now, in addition to the basic characteristics Dog inherited from Animal, we can assign fields and methods that are specific to a dog
+- Since every animal has the fields we've declared in the Animal object, we can assume those fields will have a value, we can pass 1 in place some of the values, so as not to force the inheriting classes to declare them
+
+```
+public class Dog extends Animal {
+  private String coat;
+  private int tail;
+
+  public Dog(String coat, int tail) {
+    super(1, 1, coat, tail);
+      this.coat = coat;
+      this.tail = tail;
+  }
+}
+```
+
+- Note that in Java, all classes automatically inherit certain methods from Java.lang.Object
+
+### Override methods
+
+- Classes that extend a base class can use override methods. These are methods with the same name as the super class' methods, but that perform a different behavior specific to the extended class
+- It's recommended to add the @Override immediately above the method definition. This annotatino is read by the compiler, and will show an error if the override rules aren't followed
+- Only instance methods in a child class can be overridden. Static methods, private methods, final methods, and constructors can't be overriden
+
+```
+@Override
+public void eat() {
+  chew();
+  super.eat(); //calling the super method in the override method is optional
+}
+```
+
+- A subclass can still call the superclass version of an overloaded method using <code>super.methodName()</code>
+
+### Distinguishing Class / Object / Reference / Instance
+
+- Analogy of building a house
+- Class is the blueprint for the house
+- Each house you build (or instantiate using the <code>new</code> operator) is an object, but is also known as an instance
+- Each house you build has an address. Let's say the address is written on a piece of paper, and that paper with the address is analogous to a **reference**
+- You can make many copies of a reference that all point to the same object in memory
+- We can pass references as parameters to constructors and methods
+- In Java, objects in memory are accessed via references; there's no way to access an object in memory directly
+
+### super vs this
+
+- <code>super</code> is used to call parent class variables and methods
+- <code>super</code> is also needed when you have a method in an extended class which calls a method of the same name in a parent class (to prevent a recursive method call)
+- <code>this</code> is used to call the current class members (variables and methods). This is required when we have a parameter with the same name as an instance variable (field), which is common in constructors and setters
+- <code>this</code> is optional for methods that have no parameter, like a getter
+- <code>this()</code> is used to call a constructor from another overloaded constructor within the same class. <code>this()</code> is a special use of the <code>this</code> keyword - it can only be used in a constructor, and must be the first statement in the constructor. This constructor chaining methodology helps reduce code duplication
+- <code>super()</code> is used to call a constructor from a parent class; it must be the first statement in a constructor. Note that the Java compiler puts a default call to super() if we don't add it, and it always calls the no-args constructor in that case
+- A constructor cannot call both <code>this</code> and <code>super</code>
+
+### Static vs Instance methods
+
+- Static methods, declared using a static modifier, can't access instance variables and methods directly. In other words, static methods do not have access to <code>this</code>
+- Static methods should usually be used for operations that don't require any data from an instance of this class
+- Static methods don't require an instance to be created
+- Instance methods belong to a specific instance of a class. To use instance methods you must first instantiate the class using the <code>new</code> keyword
+- Instance methods can access instance variables and methods directly. They can also access static variables and methods directly.
+- To determine whether a method should be static or an instance method, in general, if the method uses any fields (instance variables) or instance methods, it should be an instance method. If not, it should be a static method.
+
+### Static vs Instance variables
+
+- Static variables, a.k.a. static member variables, aren't used very often but can be helpful in certain scenarios
+- Every instance of a class share the same static variables - if changes are made to that variable, all other instances will see that change
+- Instance variables, a.k.a. member variables, represent the state of an instance.
+- Instance variables belong to an instance of a class, and are not shared by instances. In other words, each instance has its own value of an instance variable
