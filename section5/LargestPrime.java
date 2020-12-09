@@ -13,23 +13,14 @@ public class LargestPrime {
     if (num <= 1) {
       return -1;
     }
-    int largestPrime = 0;
-    for (int i = 2; i < num; i++) {
-      if (isPrime(i) && num % i == 0) {
-        largestPrime = i;
-      }
-      // System.out.println(largestPrime);
-    }
-    return largestPrime;
-  }
 
-  public static boolean isPrime(int num) {
     for (int i = 2; i < num; i++) {
       if (num % i == 0) {
-        return false;
+        num /= i;
+        i--;
       }
     }
-    return true;
+    return num;
   }
 }
 
