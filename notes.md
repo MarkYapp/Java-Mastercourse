@@ -213,6 +213,9 @@ scanner.close();
 - It's best practice to follow <code>int userNumber = scanner.nextInt()</code> with <code>scanner.nextLine()</code>. Scanner reads until a blank line is found, and the user entering a number and pressing enter is a blank line. Adding <code>scanner.nextLine()</code> without adding it to a variable tells Scanner to expect this empty line
 - You can input validate a number using <code>scanner.hasNextInt()</code>, which returns a boolean, in an if statement _before_ the <code>scanner.nextIn()</code> line
 - Always close the scanner with <code>scanner.close();</code>
+  <br>
+
+# OOP
 
 ## Section 6 - Classes, Constructors, and Inheritance
 
@@ -265,6 +268,7 @@ public Account() {
 
 ### Inheritance
 
+- Inheritance is a form of "is a" relationship. For example, say we create a Vehicle class and a Car class that extends vehicle. In this example, a car IS-A vehicle, and that essentially is inheritance
 - OOP allows classes to inherit characteristics from other classes
 - While creating an object, we can use keyword <code>extends</code> to inherit the state and behavior of a base class
 - The code below can be a little confusing. The first line is creating a new class Dog. Because we're creating a new class, it still needs to be initialized with a constructor, which is what's happening on the next line
@@ -347,3 +351,8 @@ public void eat() {
 - Every instance of a class share the same static variables - if changes are made to that variable, all other instances will see that change
 - Instance variables, a.k.a. member variables, represent the state of an instance.
 - Instance variables belong to an instance of a class, and are not shared by instances. In other words, each instance has its own value of an instance variable
+
+### Composition
+
+- Composition is another form of relationship that models parts of the whole
+- In the example of a Car class that extends Vehicle, that's an "is a" relationship, whereas composition is "has a" relationship
