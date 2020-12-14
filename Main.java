@@ -1,21 +1,23 @@
 import org.w3c.dom.ls.LSOutput;
-import section7.Chair;
-import section7.Dimensions;
-import section7.Door;
-import section7.Room;
+import section7.*;
 
 public class Main {
   public static void main(String[] args) {
 
-  Dimensions dimensions = new Dimensions(10, 12);
+//  Dimensions dimensions = new Dimensions(10, 12);
   Door door = new Door("white", "in");
   Chair chair = new Chair(2, 2, "Blue");
-  Room myRoom = new Room(dimensions, "Carpet", door, chair);
-  myRoom.getDoor().openDoor();
+  Light light = new Light(55, false, false);
+  Room myRoom = new Room(new Dimensions(15, 10), "Carpet", door, chair, light);
+  myRoom.openDoor();
   myRoom.getDimensions().getArea();
   myRoom.getChair().moveChair();
   myRoom.getFlooring();
   myRoom.setFlooring("Hardwood");
   myRoom.getFlooring();
+  myRoom.getLight().getIsOn();
+  myRoom.getLight().flipSwitch();
+    myRoom.getLight().flipSwitch();
+
   }
 }

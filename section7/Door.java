@@ -17,7 +17,7 @@ public class Door {
         return openDirection;
     }
 
-    public void openDoor() {
+    public void open() {
         System.out.println("Door was opened");
     }
 }
