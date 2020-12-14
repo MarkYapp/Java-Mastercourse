@@ -356,3 +356,6 @@ public void eat() {
 
 - Composition is another form of relationship that models parts of the whole
 - In the example of a Car class that extends Vehicle, that's an "is a" relationship, whereas composition is "has a" relationship
+- Composition is more flexible than inheritance and generally should be turned to first. One example of this is that classes can only inherit from a single class. That said, it depends on the solution.
+- Composition allows the creation of objects within objects. One object can manage others.
+- We can use the access modifier to hide the functionality further and not allow the calling program to access those methods directly. Then, call those methods in a class internally
