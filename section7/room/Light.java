@@ -1,4 +1,4 @@
-package section7;
+package section7.room;
 
 public class Light {
     private int brightness;

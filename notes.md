@@ -359,3 +359,26 @@ public void eat() {
 - Composition is more flexible than inheritance and generally should be turned to first. One example of this is that classes can only inherit from a single class. That said, it depends on the solution.
 - Composition allows the creation of objects within objects. One object can manage others.
 - We can use the access modifier to hide the functionality further and not allow the calling program to access those methods directly. Then, call those methods in a class internally
+
+### Encapsulation
+
+- Encapsulation is the mechanism that allows you to restrict access to certain components in the objects you're creating.
+- This guards against unauthorized access from outside classes or code to the inner workings of a class
+- Allows validation
+- Keeps naming self-contained or abstracted - you can change the names inside a class without breaking other code
+  <br>
+
+## Arrays & Lists
+
+### Arrays
+
+- Arrays are initialized by stating the data type and the number of array indices. The code can be shortened and you can initialize the number of array indices automatically by how many you pass to the initializer (if you know the values ahead of time):
+
+```
+int[] myIntArray = new int[10];
+myintArray[0] = 15; //etc
+//shortcut:
+int[] myIntArray = {0, 1, 2, 3, 4};
+```
+
+- You can only assign values of the data type of the array into the array
