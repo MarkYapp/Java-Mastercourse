@@ -382,3 +382,31 @@ int[] myIntArray = {0, 1, 2, 3, 4};
 ```
 
 - You can only assign values of the data type of the array into the array
+- The <code>new</code> keyword is used to create the array and initialize the array elements to their default values
+- For number arrays, the default value is zero, for boolean it's false, for String or other objects it's null
+
+### Value vs. Reference Types
+
+- Primitive types are value types. This means that when you assign the value of a primitive variable to a new variable, a copy is made and these two variables are now independent of each other.
+
+```
+int number1 = 10;
+int number2 = number1;
+number2++ // number2 is now 11 but number1 is still 10
+```
+
+- Reference types (such as arrays and classes) hold a reference or "address" to an object, but not the object itself
+
+```
+int[] array1 = new array[5];
+int[] array2 = array1;
+array2[0] = 1; // first index in both arrays is now 1
+```
+
+- Remember that the <code>new</code> keyword creates a new object in memory. This is important — in the above example, both variables pointed to the same array in memory. However, if we used the <code>new</code> keyboard again to _dereference_ one of the arrays, now a new object has been created in memory
+
+```
+int[] array2 = new int[] {1,2,3,4,5};
+array1[0] = 5;
+System.out.println(Array.toString(array2)); //outputs [1,2,3,4,5]
+```

@@ -1,4 +1,4 @@
-package section7.room;
+package section7.Room;
 
 public class Dimensions {
     private int width;

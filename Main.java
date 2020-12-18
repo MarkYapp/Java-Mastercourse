@@ -18,16 +18,16 @@ public class Main {
     // myRoom.getLight().flipSwitch();
     // myRoom.getLight().flipSwitch();
 
-//    Printer printer = new Printer(50, true);
-//    printer.fillToner(23);
-//    printer.print(10);
-//    printer.getToner();
+    // Printer printer = new Printer(50, true);
+    // printer.fillToner(23);
+    // printer.print(10);
+    // printer.getToner();
 
-    Mitsubishi mitsubishi = new Mitsubishi("Outlander VRX 4WD", 4);
-    System.out.println(mitsubishi.startEngine());
-    System.out.println(mitsubishi.accelerate());
-    Car car = new Car("generic car", 6);
-    System.out.println(car.startEngine());
-    System.out.println(car.accelerate());
+    // Mitsubishi mitsubishi = new Mitsubishi("Outlander VRX 4WD", 4);
+    // System.out.println(mitsubishi.startEngine());
+    // System.out.println(mitsubishi.accelerate());
+    // Car car = new Car("generic car", 6);
+    // System.out.println(car.startEngine());
+    // System.out.println(car.accelerate());
   }
 }
