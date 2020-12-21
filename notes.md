@@ -410,3 +410,10 @@ int[] array2 = new int[] {1,2,3,4,5};
 array1[0] = 5;
 System.out.println(Array.toString(array2)); //outputs [1,2,3,4,5]
 ```
+
+### Lists
+
+- ArrayList (a.k.a. Sequence) inherits from the List interface
+- The capacity of ArrayList expands automatically as items are added
+- ArrayList is a class, and as such has its own constructor
+- An ArrayList can hold objects, so when instantiating an ArrayList you must define what type of data it will hold
