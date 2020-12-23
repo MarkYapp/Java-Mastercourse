@@ -3,7 +3,7 @@ package section8;
 import java.util.ArrayList;
 
 public class ShoppingList {
-  private static ArrayList<String> shoppingList = new ArrayList<String>();
+  private ArrayList<String> shoppingList = new ArrayList<>();
 
   public void getItems() {
 

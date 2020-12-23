@@ -411,9 +411,29 @@ array1[0] = 5;
 System.out.println(Array.toString(array2)); //outputs [1,2,3,4,5]
 ```
 
-### Lists
+### ArrayList
 
 - ArrayList (a.k.a. Sequence) inherits from the List interface
-- The capacity of ArrayList expands automatically as items are added
+- The capacity of ArrayList expands automatically as items are added. Unlike arrays, you don't need to declare the size when instantiating an ArrayList.
 - ArrayList is a class, and as such has its own constructor
 - An ArrayList can hold objects, so when instantiating an ArrayList you must define what type of data it will hold
+
+#### Copy ArrayList and convert to array:
+
+- To copy an ArrayList, first instantiate a new array and pass the original ArrayList to the addAll() method. Or, use the constructor and pass in the original array
+- You can switch an ArrayList to an array using the size() and then calling toArray() on the original ArrayList, passing in the array variable name
+
+```
+// say the ArrayList class is called shoppingList and the getter is getShoppingList
+
+// make a copy (slow way)
+ArrayList<String> myArrayList = new ArrayList<String>();
+myArrayList.addAll(shoppingList.getShopingList());
+
+// make a copy (fast way)
+myArrayList<String> = new ArrayList<String>(shoppingList.getShoppingList());
+
+// convert ArrayList to array
+String[] myArray = new String[ArrayList<String>.size()];
+myArray = shoppingList.getShoppingList().toArray(myArray);
+```

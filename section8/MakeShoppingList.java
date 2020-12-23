@@ -3,8 +3,8 @@ package section8;
 import java.util.Scanner;
 
 public class MakeShoppingList {
-  private static ShoppingList shoppingList = new ShoppingList();
   private static Scanner scanner = new Scanner(System.in);
+  private static ShoppingList shoppingList = new ShoppingList();
 
   public static void main(String[] args) {
     printOptions();
