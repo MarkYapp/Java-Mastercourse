@@ -4,10 +4,19 @@ import java.util.ArrayList;
 
 public class MobilePhone {
   private String myNumber;
-
-  private ArrayList<Contact> myContacts = new ArrayList<>();
+  private ArrayList<Contact> myContacts;
 
   public MobilePhone(String myNumber) {
+    this.myNumber = myNumber;
+    this.myContacts = new ArrayList<>();
+  }
+
+  public MobilePhone() {
+    this.myNumber = "defaultNumber";
+    this.myContacts = new ArrayList<>();
+  }
+
+  public void setMyNumber(String myNumber) {
     this.myNumber = myNumber;
   }
 
@@ -40,31 +49,44 @@ public class MobilePhone {
     }
   }
 
-  public int findContact(Contact contact) {
+  private int findContact(Contact contact) {
     return myContacts.indexOf(contact);
   }
 
-  // public int findContact(String contact) {
-  // return queryContact(contact);
-  // }
+  private int findContact(String contactName) {
+    for (int i = 0; i < myContacts.size(); i++) {
+      if (myContacts.get(i).getName().equals(contactName)) {
+        return i;
+      }
+    }
+    return -1;
+  }
 
-  // public Contact queryContact(String contact) {
-  // int position;
-  // if (myContacts.contains(contact)) {
-  // return Contact;
-  // } else {
-  // return null;
-  // }
-  // }
+  public Contact queryContact(String contactName) {
+    int position = findContact(contactName);
+    return position < 0 ? null : myContacts.get(position);
+  }
 
   public void printContacts() {
-    for (int i = 0; i < myContacts.size(); i++) {
-      System.out.println(i + 1 + ". " + myContacts.get(i).getName() + " -> " + myContacts.get(i).getPhoneNumber());
+    if (myContacts.size() > 0) {
+      for (int i = 0; i < myContacts.size(); i++) {
+        System.out.println(i + 1 + ". " + myContacts.get(i).getName() + " -> " + myContacts.get(i).getPhoneNumber());
+      }
+    } else {
+      System.out.println("You don't have any contacts yet. Select 1 to add a contact.");
     }
   }
-  // Contact List:
-  // 1. Bob -> 31415926
 }
+// -  findContact(), has one parameter of type Contact and returns an
+// int. The returned value is it's position in the ArrayList, it will either be
+// -1 (doesn't exists) or a value greater than or equal to 0 (does exists).
+//         -  findContact(), same as above, only it has one parameter of type
+// String.
+//         -  queryContact(), has one parameter of type String and returns a
+// Contact. Use the String to search for the name and then return the Contact.
+// Return null otherwise.
+//         -  printContacts(), has no parameters and doesn't return anything.
+// Print the contacts in the following format:
 
 // Create a program that implements a simple mobile phone with the following
 // capabilities.
