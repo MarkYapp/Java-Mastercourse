@@ -437,3 +437,39 @@ myArrayList<String> = new ArrayList<String>(shoppingList.getShoppingList());
 String[] myArray = new String[ArrayList<String>.size()];
 myArray = shoppingList.getShoppingList().toArray(myArray);
 ```
+
+### Autoboxing and Unboxing
+
+- ArrayList must be passed an object type; it doesn't accept primitive types (recall String is a class type). You could work around this by creating a custom class that accepts a primitive (this would be creating a wrapper for the primitive type), but Autoboxing is the better way.
+- Autoboxing is built-in Java wrapper that allows you to pass primitive types as objects to ArrayLists or other classes that require objects.
+- Each primitive type has its own autoboxing and unboxing methods
+- For ints, the autoboxing method is Integer.valueOf(), while the unboxing method is .intValue()
+
+```
+ArrayList<int> myIntList = new ArrayList<>(); // this is invalid
+ArrayList<Integer> myIntList = new ArrayList<>(); //this is valid. To access the elements, use Integer.valueOf and .intValue()
+
+for (int i=0; i<10; i++) {
+  myIntList.add(Integer.valueOf(i)); // autoboxing int values to the Integer class values
+}
+
+for (int i=0; i<myIntList.size(); i++) {
+  System.out.println(myIntList.get(i).intValue()); // unboxing Integer class values to int primitive values
+}
+```
+
+- There's a shortcut for the above autoboxing and unboxing methods. If you pass a primitive type to its respective class type, Java adds the appropriate method at compile time
+
+```
+ArrayList<Integer> myIntList = new ArrayList<>();
+
+for (int i=0; i<10; i++) {
+  myIntList.add(i)); // autoboxing using the shortcut
+}
+
+for (int i=0; i<myIntList.size(); i++) {
+  System.out.println(myIntList.get(i)); // unboxing using the shortcut
+}
+```
+
+To summarize, lower case is a primitive type (e.g. double), upper case is an object wrapper (e.g. Double).

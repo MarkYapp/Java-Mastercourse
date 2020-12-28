@@ -62,7 +62,11 @@ public class MakeMobilePhone {
     System.out.print("Enter a new contact number: ");
     String newContactNumber = scanner.nextLine();
     Contact newContact = Contact.createContact(newContactName, newContactNumber);
-    mobilePhone.addNewContact(newContact);
+    if (mobilePhone.addNewContact(newContact)) {
+      System.out.println(newContactName + " added to contacts");
+    } else {
+      System.out.println("Contact already exists");
+    }
   }
 
   public static void searchContact() {
