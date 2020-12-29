@@ -473,3 +473,24 @@ for (int i=0; i<myIntList.size(); i++) {
 ```
 
 To summarize, lower case is a primitive type (e.g. double), upper case is an object wrapper (e.g. Double).
+
+### Linked List
+- Linked lists offer an alternative to an array list that is particularly useful when dealing with very large numbers of list records. For example, adding or removing an record from an array list requires records further down the list to be moved up or down—this is not a problem for relatively small lists, but for very large lists can take lots of computing power.
+- A linked list has the advantage of, when adding or removing a list record, it only requires moving and/or replacing references for the record in question. Nothing else has to move.
+- Linked lists can make use of an Iterator, which is a built-in method. This is similar to <code>int i=0</code> for primitive types. <code>hasNext()</code> tells us whether there's another record in the list, while <code>iterator.next()</code> returns the current record and then indexes the iterator.
+```
+LinkedList<String> cities = new LinkedList<>();
+cities.add("Ann Arbor");
+cities.add("Denver");
+
+Iterator<String> i = new LinkedList.iterator();
+while(i.hasNext()) {
+  System.out.println(i.next());)
+}
+```
+- To insert a record, use <code>.insert(_index_, _new record_)</code>
+- To delete a record, use <code>.remove(_index_)</code>
+- Java's built in LinkedList code automatically moves the references
+- <code>ListIterator<_type_></code> is a special type of iterator that can be indexed forwards and backwards (the iterator above can only be indexed forwards). 
+- A ListIterator has no current element; its cursor position always lies between the element that would be returned by a call to previous() and the element that would be returned by a call to next(). An iterator for a list of length n has n+1 possible cursor positions
+- More on ListIterator [here](https://docs.oracle.com/javase/7/docs/api/java/util/ListIterator.html)
