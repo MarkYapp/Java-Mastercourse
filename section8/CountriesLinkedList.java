@@ -14,14 +14,14 @@ public class CountriesLinkedList {
   }
 
   private static boolean arrangeCountries(LinkedList<String> linkedList, String country) {
-    ListIterator<String> listIterator =  linkedList.listIterator();
+    ListIterator<String> listIterator = linkedList.listIterator();
 
-    while(listIterator.hasNext()) {
-    int comparison = listIterator.next().compareTo(country);
+    while (listIterator.hasNext()) {
+      int comparison = listIterator.next().compareTo(country);
 
       if (comparison == 0) {
         System.out.println("Country already exists");
-          return false;
+        return false;
       } else if (comparison > 0) {
         listIterator.previous();
         listIterator.add(country);
@@ -37,7 +37,7 @@ public class CountriesLinkedList {
   private static void printList(LinkedList<String> linkedList) {
     System.out.println("========================\nCountries in alphabetical order:");
     ListIterator iterator = linkedList.listIterator();
-    while(iterator.hasNext()) {
+    while (iterator.hasNext()) {
       System.out.println(iterator.next());
     }
   }
