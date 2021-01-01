@@ -3,10 +3,107 @@ package section8.Playlist;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Scanner;
 
 public class MakePlaylist {
   public static void main(String[] args) {
+    LinkedList<Song> playlist = populatePlaylist();
+    playPlaylist(playlist);
+  }
 
+  public static void playPlaylist(LinkedList<Song> playlist) {
+    ListIterator<Song> li = playlist.listIterator();
+
+    if (playlist.isEmpty()) {
+      System.out.println("Playlist is empty");
+      return;
+    } else {
+      System.out.println("\nNow playing " + li.next());
+    }
+
+    Scanner scanner = new Scanner(System.in);
+    boolean quit = false;
+    boolean forward = true;
+
+    printOptions();
+
+    while (!quit) {
+      System.out.print("Choose an option: ");
+      int selection = scanner.nextInt();
+      scanner.nextLine();
+
+      switch (selection) {
+        case 0:
+          printOptions();
+          break;
+        case 1:
+          printPlaylist(playlist);
+          break;
+        case 2: // move forward
+          if (!forward) { // move cursor position
+            if (li.hasNext()) {
+              li.next();
+            }
+            forward = true;
+          }
+          if (li.hasNext()) {
+            System.out.println("Now playing " + li.next());
+          } else {
+            System.out.println("At end of playlist");
+          }
+          break;
+        case 3: // move backward
+          if (forward) {
+            if (li.hasPrevious()) {
+              li.previous();
+            }
+            forward = false;
+          }
+          if (li.hasPrevious()) {
+            System.out.println("Now playing " + li.previous());
+          } else {
+            System.out.println("At start of playlist");
+          }
+          break;
+        case 4:
+          if (!playlist.isEmpty()) {
+            li.remove();
+            if (li.hasNext()) {
+
+              System.out.println("\nNow playing " + li.next());
+            } else if (li.hasPrevious()) {
+              System.out.println("\nNow playing " + li.previous());
+            }
+          } else {
+            System.out.println("Playlist is empty");
+          }
+          break;
+        case 5:
+          System.out.println("Goodbye");
+          quit = true;
+          break;
+        default:
+          System.out.println("There was a problem.");
+          quit = true;
+          break;
+      }
+    }
+  }
+
+  public static void printPlaylist(LinkedList<Song> playlist) {
+    System.out.println("=========================\nSongs in playlist: ");
+    for (Song song : playlist) {
+      System.out.println((playlist.indexOf(song) + 1) + ". " + song.getTitle() + ", " + song.getDuration());
+    }
+    System.out.println("=========================");
+  }
+
+  public static void printOptions() {
+    System.out.println(
+        "\nOptions:\n0: Print options\n1: Show songs in playlist\n2: Next song\n3: Previous song\n4: Delete current song\n5: Quit");
+  }
+
+  public static LinkedList<Song> populatePlaylist() {
     ArrayList<Album> albums = new ArrayList<>();
 
     Album album = new Album("Stormbringer", "Deep Purple");
@@ -37,29 +134,11 @@ public class MakePlaylist {
     LinkedList<Song> playList = new LinkedList<>();
     albums.get(0).addToPlayList("You can't do it right", playList);
     albums.get(0).addToPlayList("Holy man", playList);
-    albums.get(0).addToPlayList("Speed king", playList); // Does not exist
     albums.get(0).addToPlayList(9, playList);
     albums.get(1).addToPlayList(3, playList);
     albums.get(1).addToPlayList(2, playList);
-    albums.get(1).addToPlayList(24, playList); // There is no track 24
 
-    printPlaylist(playList);
-
-    playPlaylist(playList);
-  }
-
-  public static void printPlaylist(LinkedList<Song> playlist) {
-    System.out.println("=========================\nSongs in playlist: ");
-    for (Song song : playlist) {
-      System.out.println((playlist.indexOf(song) + 1) + ". " + song.getTitle() + ", " + song.getDuration());
-    }
-  }
-
-  public static void playPlaylist(LinkedList<Song> playlist) {
-    ListIterator<Song> li = playlist.listIterator();
-    while (li.hasNext()) {
-      System.out.println("Now playing \"" + li.next().getTitle() + "\"");
-    }
+    return playList;
   }
 }
 
