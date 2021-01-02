@@ -491,7 +491,7 @@ while(i.hasNext()) {
 }
 ```
 
-- To insert a record, use <code>.insert(_index_, _new record_)</code>
+- To insert a record, use <code>.insert(_index_, _new record_)</code>, or to add to the end of the linked list, use <code>.add(_new record_)</code>
 - To delete a record, use <code>.remove(_index_)</code>
 - Java's built in LinkedList code automatically moves the references
 - <code>ListIterator<_type_></code> is a special type of iterator that can be indexed forwards and backwards (the iterator above can only be indexed forwards).
@@ -517,3 +517,12 @@ if (listIterator.hasNext()) {
 ```
 
 - More on ListIterator [here](https://docs.oracle.com/javase/7/docs/api/java/util/ListIterator.html)
+
+## Interfaces
+
+- An interface specifies methods that a particular class that implements the interface must implement
+- The interface is abstract, meaning there's no code for the methods, only the method names and parameters. Instead, the actual method code goes in the implementing class
+- The result is that interfaces provide a common behavior that can be used by several classes to standardize how they're used
+- Essentially, an interface is a commitment or contract that the method's signatures and variables in the interface constants (if you defined any)
+  will not change. In other words, you can create an interface and use it, knowing that provided you stick to what's in that interface, the code isn't going to change and you won't be breaking other code.
+- In an interface class, the public access modifier is redundant and can be omitted
