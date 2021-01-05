@@ -526,3 +526,14 @@ if (listIterator.hasNext()) {
 - Essentially, an interface is a commitment or contract that the method's signatures and variables in the interface constants (if you defined any)
   will not change. In other words, you can create an interface and use it, knowing that provided you stick to what's in that interface, the code isn't going to change and you won't be breaking other code.
 - In an interface class, the public access modifier is redundant and can be omitted
+- When you instantiate an interface, the instantiating object has access to methods that are in the interface class, but not to methods that are only in the implementing class. The way around this is to cast the instantiating object as the type of the implementing class
+
+```
+ICharacter beowulf = new Hero();
+// here we can call any methods that are part of the interface ICharacter, but not methods from Hero
+// cast beowulf to type Hero (using println for example's sake)
+System.out.println((Hero) beowulf.getStrength());
+```
+
+- Note also that the object need not be instantiated as the interface type; it could also be instantiated as the implementing class type. In the example above, we could also do <code>Hero beowulf = new Hero()</code>
+- It depends on the use case for which is better, but unless there's a specific need to do so, generally it's better to use the interface class type because it keeps the code more flexible

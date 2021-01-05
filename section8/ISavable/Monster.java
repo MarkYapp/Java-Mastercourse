@@ -28,19 +28,19 @@ public class Monster implements ISavable {
 
   @Override
   public List<String> write() {
-    List<String> fieldList = new ArrayList<>();
-    fieldList.add(0, this.name);
-    fieldList.add(1, "" + this.hitPoints);
-    fieldList.add(2, "" + this.strength);
-    return fieldList;
+    List<String> values = new ArrayList<>();
+    values.add(0, this.name);
+    values.add(1, "" + this.hitPoints);
+    values.add(2, "" + this.strength);
+    return values;
   }
 
   @Override
-  public void read(List<String> fields) {
-    if (fields != null && !fields.isEmpty()) {
-      this.name = fields.get(0);
-      this.hitPoints = Integer.parseInt(fields.get(2));
-      this.strength = Integer.parseInt(fields.get(3));
+  public void read(List<String> values) {
+    if (values != null && !values.isEmpty()) {
+      this.name = values.get(0);
+      this.hitPoints = Integer.parseInt(values.get(1));
+      this.strength = Integer.parseInt(values.get(2));
     }
   }
 
