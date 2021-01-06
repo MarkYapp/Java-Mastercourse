@@ -537,3 +537,24 @@ System.out.println((Hero) beowulf.getStrength());
 
 - Note also that the object need not be instantiated as the interface type; it could also be instantiated as the implementing class type. In the example above, we could also do <code>Hero beowulf = new Hero()</code>
 - It depends on the use case for which is better, but unless there's a specific need to do so, generally it's better to use the interface class type because it keeps the code more flexible
+
+### Inner Classes
+
+- Four types: static nested, non-static nested (aka inner class), and local and anonymous, which are special types of inner classes.
+
+#### Static Nested
+
+- Mainly used to associate a class with its outer class. A static nested class is identical to a top-level class in terms of behavior, but because it's packaged in its outer class rather than in the package, it cannot access the nonstatic methods or members of its outer class unless the outer class is instantiated.
+
+#### Inner Class
+
+- Inner class or nested class is a class which is declared inside the class or interface. We use inner classes to logically group classes and interfaces in one place so that it can be more readable and maintainable.
+- Nested classes represent a special type of relationship allowing it to access all the members (data members and methods) of outer class, including private.
+
+#### Local Class
+
+- Local inner classes are declared inside a code block, such as a method or if statement (not often used)
+
+#### Anonymous Class
+
+- Anonymous is a local class with no class name. They must be declared and instantiated at the same time because they have no name. They're used when a local class is required only once, and are commonly used for attaching event handlers to buttons
