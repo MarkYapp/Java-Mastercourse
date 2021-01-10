@@ -520,6 +520,7 @@ if (listIterator.hasNext()) {
 
 ## Interfaces
 
+- An interface's primary purpose is abstraction - decoupling the "what" from the "how"
 - An interface specifies methods that a particular class that implements the interface must implement
 - The interface is abstract, meaning there's no code for the methods, only the method names and parameters. Instead, the actual method code goes in the implementing class
 - The result is that interfaces provide a common behavior that can be used by several classes to standardize how they're used
@@ -550,11 +551,45 @@ System.out.println((Hero) beowulf.getStrength());
 
 - Inner class or nested class is a class which is declared inside the class or interface. We use inner classes to logically group classes and interfaces in one place so that it can be more readable and maintainable.
 - Nested classes represent a special type of relationship allowing it to access all the members (data members and methods) of outer class, including private.
+- An instance of the enclosing class is required to create an instance of the inner class
+- The syntax to create an instance of an inner class is a little different, making use of <code>.new</code> (Room is an inner class of House):
+
+```
+House ranch = new House(5);
+House.Room = ranch.new Room(1, 12.3);
+```
+
+- Note that it's more common to set inner classes to private, and have the enclosing class itself create an instance of the inner class. This is a good way to achieve encapsulation.
 
 #### Local Class
 
-- Local inner classes are declared inside a code block, such as a method or if statement (not often used)
+- Local inner classes are declared inside a code block, such as a method or if statement (not commonly used)
 
 #### Anonymous Class
 
-- Anonymous is a local class with no class name. They must be declared and instantiated at the same time because they have no name. They're used when a local class is required only once, and are commonly used for attaching event handlers to buttons
+- Anonymous is a local class with no class name. They must be declared and instantiated at the same time because they have no name. They're used when a local class is required only once
+- Commonly used for attaching event handlers to buttons
+
+### Abstract Classes
+
+- Similar to an interface, an abstract class defines methods but doesn't provide their implementation; rather their implementation is left up to the classes that extend the abstract class
+- Again, just like interfaces, any class that extends an abstract class must implement the abstract methods it defines
+- Abstract classes can extend from other abstract classes
+
+- Note that interface classes are inherently anonymous, since you can't instantiate the interface, but instead must instantiate a class that implements the interface.
+
+- Differences between an abstract class and an interface:
+
+  - An abstract class can have member variables that are inherited, something that can't be done in interface.
+  - Interfaces can have variables, but they're all public static final variables, which essentially makes them constant values that you never change, with a static scope. They have to be static, because non static variables require an instance, and of course, you can't instantiate an interface.
+  - Abstract classes can have defined methods, ie methods with an implementation, whereas all methods in an interface are abstract.
+  - Interfaces also cannot have constructors, but abstract classes can
+  - All methods in an interface are automatically public, whereas the methods of an abstract class can have any visibility.
+
+- Determining whether to use abstract classes or interfaces is one of the skills of OOP. Here's an example of an abstract class that makes use of both:
+
+```
+public abstract class Bird extends Animal implements CanFly {
+
+}
+```
